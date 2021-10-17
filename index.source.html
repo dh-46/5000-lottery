@@ -85,31 +85,70 @@
   </div>
 </body>
 <script>
-  let coupons = [{
+  let domesticTravel = [{
     name: '國旅券',
+    week: '第一週',
+    date: '2021/10/12 (二)',
     codes: ['21', '32', '98', '67', '97', '410']
-  }, {
+  }]
+
+  let iYuan = [{
     name: 'i原券',
+    week: '第一週',
+    date: '2021/10/12 (二)',
     codes: ['64', '85']
-  }, {
+  }]
+
+  let agri = [{
     name: '農遊券',
+    week: '第一週',
+    date: '2021/10/13 (三)',
     codes: ['89', '32', '54', '597', '453', '152']
-  }, {
+  }]
+
+  let artFunDigi = [{
     name: '藝fun券(數位)',
+    week: '第一週',
+    date: '2021/10/13 (三)',
     codes: ['96', '15', '07', '30', '73', '98', '19', '11']
-  }, {
+  }]
+
+  let artFunP = [{
     name: '藝fun券(紙本)',
+    week: '第一週',
+    date: '2021/10/13 (三)',
     codes: ['39', '37', '23', '36', '79', '08', '14', '75']
-  }, {
+  }]
+
+  let sports = [{
     name: '動滋券',
+    week: '第一週',
+    date: '2021/10/14 (四)',
     codes: ['97', '13', '19', '55', '71', '93', '381', '734', '644', '453', '985']
-  }, {
+  }]
+
+  let hakka = [{
     name: '客庄劵2.0',
+    week: '第一週',
+    date: '2021/10/14 (四)',
     codes: ['81', '900']
-  }, {
+  }]
+
+  let region = [{
     name: '地方創生券',
+    week: '第一週',
+    date: '2021/10/15 (五)',
     codes: ['081', '105', '594', '188', '089', '396', '521', '467', '912', '798', '358', '441', '367', '941', '335']
   }]
+
+  let coupons = domesticTravel
+    .concat(iYuan)
+    .concat(agri)
+    .concat(artFunDigi)
+    .concat(artFunP)
+    .concat(sports)
+    .concat(hakka)
+    .concat(region)
 
   let rs = []
 
@@ -119,7 +158,13 @@
       coupons.map((coupon) => {
         coupon.codes.map((code) => {
           if (id.slice(-code.length) === code) {
-            winning.push(`${coupon.name}[${code}]`)
+            let result = {
+              name: coupon.name,
+              week: coupon.week,
+              date: coupon.date,
+              code: code
+            }
+            winning.push(result)
           }
         })
       })
@@ -147,9 +192,24 @@
       result.appendChild(h3)
 
       let span = document.createElement('span')
-      let winning = r.winning.length > 0 ? `中：${r.winning.join(', ')}` : '都沒中'
-      span.appendChild(document.createTextNode(winning))
+      if (r.winning.length > 0) {
+        r.winning.forEach(item => {
+          span.appendChild(document.createTextNode(item.name))
+          span.appendChild(document.createElement('br'))
+          span.appendChild(document.createTextNode(item.week))
+          span.appendChild(document.createTextNode(":"))
+          span.appendChild(document.createTextNode(item.date))
+          span.appendChild(document.createElement('br'))
+          span.appendChild(document.createTextNode(item.code))
+          span.appendChild(document.createElement('br'))
+        });
+
+      } else {
+        span.appendChild(document.createTextNode('都沒中'))
+      }
+      let hr = document.createElement('hr')
       result.appendChild(span)
+      result.appendChild(hr)
     })
   }
 
