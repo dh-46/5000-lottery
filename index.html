@@ -1,1 +1,176 @@
-<!doctype html><html><head><meta charset="utf-8"><title>振興五倍加碼券速查</title><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta property="og:image" content="https://onlinemad.github.io/5000-lottery/cover.webp"/><style>body{width:25%;margin:auto}button{width:100%;height:25pt}.main{text-align:center}.main small{color:#b22222}.main textarea{width:95%;font-size:20pt}.result-title{text-align:center}.footer{color:#696969;text-align:center;margin:20pt auto;line-height:18pt}#result{margin-bottom:20pt}@media only screen and (max-device-width :375px){body{width:95%}}@media only screen and (min-device-width :375px) and (max-device-width :667px){body{width:75%}}</style></head><body onload="loadUid()"><div class="main"><h1>振興五倍加碼券速查</h1><p><small>非官方，加碼券說明請看<a href="https://5000.gov.tw/" target="_blank">振興五倍券官網</a></small></p><div><textarea id="uid" rows="5" placeholder="請輸入身分證字號（至少輸入末三碼），用 , 分開多筆"></textarea> <button onclick="query()">查詢</button></div></div><div><h2 class="result-title">查詢結果</h2><div id="result"></div><div id="mask" style="display:none"><button onclick="mask()">碼掉身分證字號 for 截圖分享</button></div></div><div class="footer"><small>無廣告、無追蹤碼<br/>身分證字號暫存在瀏覽器內，你也可以<a href="#" onclick="clean()">清除暫存</a><br/>網站以<a href="https://github.com/onlinemad/5000-lottery" target="_blank">開放原始碼方式釋出</a></small></div></body><script>let coupons=[{name:"國旅券",codes:["21","32","98","67","97","410"]},{name:"i原券",codes:["64","85"]},{name:"農遊券",codes:["89","32","54","597","453","152"]},{name:"藝fun券(數位)",codes:["96","15","07","30","73","98","19","11"]},{name:"藝fun券(紙本)",codes:["39","37","23","36","79","08","14","75"]},{name:"動滋券",codes:["97","13","19","55","71","93","381","734","644","453","985"]},{name:"客庄劵2.0",codes:["81","900"]},{name:"地方創生券",codes:["081","105","594","188","089","396","521","467","912","798","358","441","367","941","335"]}],rs=[],search=(e,n)=>{return e.map(d=>{let t=[];return n.map(n=>{n.codes.map(e=>{d.slice(-e.length)===e&&t.push(`${n.name}[${e}]`)})}),{id:d,winning:t}})},uid=null;function loadUid(){uid=document.getElementById("uid"),uid.value=localStorage.getItem("uid")}function render(e){let t=document.getElementById("result");t.innerHTML="",e.map(e=>{let n=document.createElement("h3");n.appendChild(document.createTextNode(e.id)),t.appendChild(n);let d=document.createElement("span");e=0<e.winning.length?`中：${e.winning.join(", ")}`:"都沒中";d.appendChild(document.createTextNode(e)),t.appendChild(d)})}function query(){uid.style.display=null;let e=uid.value.split(",").map(e=>e.trim());localStorage.setItem("uid",e.toString()),rs=search(e,coupons),render(rs),document.getElementById("mask").style.display="block"}function mask(){uid.style.display="none",render(rs.map(e=>(e.id=e.id.replace(/[a-z\d]/gi,"*"),e)))}function clean(){uid.value="",uid.style.display=null,localStorage.removeItem("uid"),rs=[],render(rs),document.getElementById("mask").style.display="none"}</script></html>
+<!doctypehtml><html class=h-100><meta charset=utf-8><meta content="width=device-width,initial-scale=1,maximum-scale=1,shrink-to-fit=no"name=viewport><meta content=https://onlinemad.github.io/5000-lottery/cover.webp property=og:image><link crossorigin=anonymous href=https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css integrity=sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3 rel=stylesheet><title>振興五倍加碼券速查(非官方提供)</title><style>footer{background-color:#9a0433}nav{background-color:#9a0433}</style><body class="h-100 bg-light d-flex flex-column"onload=loadUid()><nav class="navbar navbar-dark navbar-expand-lg"><div class=container><a href=./index.source.html class=navbar-brand style=font-weight:700>振興五倍加碼券速查 (非官方提供)</a> <button class=navbar-toggler type=button aria-controls=navbarNav aria-expanded=false aria-label="Toggle navigation"data-bs-target=#navbarNav data-bs-toggle=collapse><span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse"id=navbarNav><ul class=navbar-nav><li class=nav-item><a href=# class="nav-link active"aria-current=page>首頁</a><li class=nav-item><a href=https://vhpi.5000.gov.tw/ class=nav-link target=_blank>加碼券說明</a><li class=nav-item><a href=https://1000.taiwan.net.tw/ class=nav-link target=_blank>國旅券官網</a><li class=nav-item><a href=https://explorethesun.tw/cipshop/ class=nav-link target=_blank>i 原券官網</a><li class=nav-item><a href=https://artsfunnext.moc.gov.tw/home/ class=nav-link target=_blank>藝 Fun 券官網</a><li class=nav-item><a href=https://888.coa.gov.tw/Index class=nav-link target=_blank>農遊券官網</a><li class=nav-item><a href=https://www.twrr.ndc.gov.tw/ class=nav-link target=_blank>創生券官網</a><li class=nav-item><a href=http://www.hakka500.tw/ class=nav-link target=_blank>客庄券官網</a><li class=nav-item><a href=https://500.gov.tw/ class=nav-link target=_blank>動滋券官網</a></ul></div></div></nav><main><div class=container><br><div class=mb-3><label class=form-label><h3><small>此網站非官方提供，加碼券中獎與使用說明請看<a href=https://vhpi.5000.gov.tw/ target=_blank>振興五倍券官網</a></small></h3></label> <textarea class=form-control id=uid placeholder="請輸入身分證字號（至少輸入末三碼），用 , 分開多筆"rows=5></textarea></div><div class=d-grid><button class="btn btn-outline-danger"type=button onclick=query()>查詢</button> <button class="btn btn-outline-warning"type=button onclick=clean() style=margin-top:16px>清除暫存</button></div><div class=mb-3><h2 class=text-center style=margin-top:16px>查詢結果</h2><div class=container id=result></div><div class=d-grid><button class="btn btn-outline-success"type=button onclick=mask() style=display:none id=mask>碼掉身分證字號 for 截圖分享</button></div></div></div></main><footer class="bg-dark footer mt-auto py-3"><div class="container text-center"><span class=text-white>無廣告、無追蹤碼<br>身分證字號暫存在瀏覽器內，您可以點選清除暫存按鈕清除。<br>本網站修改自 <a href=https://github.com/onlinemad/5000-lottery>onlinemad 的開源專案</a>， 並同樣以 <a href=https://github.com/dh-46/5000-lottery target=_blank>開放原始碼</a> 方式釋出。</span></div></footer><script crossorigin=anonymous integrity=sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13 src=https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js></script><script>let domesticTravel = [{
+    name: '國旅券',
+    week: '第一週',
+    date: '2021/10/12 (二)',
+    codes: ['21', '32', '98', '67', '97', '410']
+  }]
+
+  let iYuan = [{
+    name: 'i原券',
+    week: '第一週',
+    date: '2021/10/12 (二)',
+    codes: ['64', '85']
+  }]
+
+  let agri = [{
+    name: '農遊券',
+    week: '第一週',
+    date: '2021/10/13 (三)',
+    codes: ['89', '32', '54', '597', '453', '152']
+  }]
+
+  let artFunDigi = [{
+    name: '藝fun券(數位)',
+    week: '第一週',
+    date: '2021/10/13 (三)',
+    codes: ['96', '15', '07', '30', '73', '98', '19', '11']
+  }]
+
+  let artFunP = [{
+    name: '藝fun券(紙本)',
+    week: '第一週',
+    date: '2021/10/13 (三)',
+    codes: ['39', '37', '23', '36', '79', '08', '14', '75']
+  }]
+
+  let sports = [{
+    name: '動滋券',
+    week: '第一週',
+    date: '2021/10/14 (四)',
+    codes: ['97', '13', '19', '55', '71', '93', '381', '734', '644', '453', '985']
+  }]
+
+  let hakka = [{
+    name: '客庄劵2.0',
+    week: '第一週',
+    date: '2021/10/14 (四)',
+    codes: ['81', '900']
+  }]
+
+  let region = [{
+    name: '地方創生券',
+    week: '第一週',
+    date: '2021/10/15 (五)',
+    codes: ['081', '105', '594', '188', '089', '396', '521', '467', '912', '798', '358', '441', '367', '941', '335']
+  }]
+
+  let coupons = domesticTravel
+    .concat(iYuan)
+    .concat(agri)
+    .concat(artFunDigi)
+    .concat(artFunP)
+    .concat(sports)
+    .concat(hakka)
+    .concat(region)
+
+  let rs = []
+
+  let search = (ids, coupons) => {
+    let _rs = ids.map((id) => {
+      let winning = []
+      coupons.map((coupon) => {
+        coupon.codes.map((code) => {
+          if (id.slice(-code.length) === code) {
+            let result = {
+              name: coupon.name,
+              week: coupon.week,
+              date: coupon.date,
+              code: code
+            }
+            winning.push(result)
+          }
+        })
+      })
+      return {
+        id: id,
+        winning: winning
+      }
+    })
+    return _rs
+  }
+
+  let uid = null
+
+  function loadUid() {
+    uid = document.getElementById('uid')
+    uid.value = localStorage.getItem('uid')
+  }
+
+  function render(_rs) {
+    let result = document.getElementById('result')
+    result.className = "container"
+    result.innerHTML = ''
+    _rs.map((r) => {
+      // 寫查詢的身分證字號
+      let h3 = document.createElement('h3')
+      h3.appendChild(document.createTextNode(r.id))
+      result.appendChild(h3)
+      
+      var grid
+      if (r.winning.length > 0) {
+        r.winning.forEach((item, index) => {
+          // 兩張為一列
+          if (index % 2 == 0) {
+            grid = document.createElement('div')
+            grid.className = "row justify-content-md-center"
+            result.appendChild(grid)
+          }
+
+          // 一張卡一張券
+          let card = document.createElement('div')
+          card.className = "card col col-lg-auto"
+          card.style = "width: 100%; margin:8px;"
+
+          let cardBody = document.createElement('div')
+          cardBody.className = "card-body"
+          card.appendChild(cardBody)
+
+          let title = document.createElement('h3')
+          title.className = "card-title"
+          title.style = "font-weight: bold; color: red;"
+          title.innerHTML = item.name + " [" + item.code + "] <br/>" + item.week + "中籤"
+          cardBody.appendChild(title)
+
+          let cardText = document.createElement('h7')
+          cardText.appendChild(document.createTextNode("抽籤日期: " + item.date))
+          cardBody.appendChild(cardText)
+          grid.appendChild(card)
+        });
+
+      } else {
+        let span = document.createElement('h5')
+        span.appendChild(document.createTextNode('都沒中'))
+        result.appendChild(span)
+      }
+      let hr = document.createElement('hr')
+      result.appendChild(hr)
+    })
+  }
+
+  function query() {
+    uid.style.display = null
+
+    let uids = uid.value.split(',').map((_uid) => _uid.trim())
+    localStorage.setItem('uid', uids.toString())
+
+    rs = search(uids, coupons)
+    render(rs)
+    document.getElementById('mask').style.display = 'block'
+  }
+
+  function mask() {
+    uid.style.display = 'none'
+    render(rs.map((r) => {
+      r.id = r.id.replace(/[a-z\d]/gi, '*')
+      return r
+    }))
+  }
+
+  function clean() {
+    uid.value = ''
+    uid.style.display = null
+    localStorage.removeItem('uid')
+    rs = []
+    render(rs)
+    document.getElementById('mask').style.display = 'none'
+  }</script>
