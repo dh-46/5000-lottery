@@ -12,6 +12,7 @@
     footer {
       background-color: #9a0433;
     }
+
     nav {
       background-color: #9a0433;
     }
@@ -78,7 +79,7 @@
       <div class="mb-3">
 
         <h2 class="text-center" style="margin-top: 16px;">查詢結果</h2>
-        <div id="result">
+        <div id="result" class="container">
         </div>
         <div class="d-grid">
           <button style="display: none;" id="mask" type="button" class="btn btn-outline-success"
@@ -200,30 +201,51 @@
 
   function render(_rs) {
     let result = document.getElementById('result')
+    result.className = "container"
     result.innerHTML = ''
     _rs.map((r) => {
+      // 寫查詢的身分證字號
       let h3 = document.createElement('h3')
       h3.appendChild(document.createTextNode(r.id))
       result.appendChild(h3)
-
-      let span = document.createElement('span')
+      
+      var grid
       if (r.winning.length > 0) {
-        r.winning.forEach(item => {
-          span.appendChild(document.createTextNode(item.name))
-          span.appendChild(document.createElement('br'))
-          span.appendChild(document.createTextNode(item.week))
-          span.appendChild(document.createTextNode(":"))
-          span.appendChild(document.createTextNode(item.date))
-          span.appendChild(document.createElement('br'))
-          span.appendChild(document.createTextNode(item.code))
-          span.appendChild(document.createElement('br'))
+        r.winning.forEach((item, index) => {
+          // 兩張為一列
+          if (index % 2 == 0) {
+            grid = document.createElement('div')
+            grid.className = "row justify-content-md-center"
+            result.appendChild(grid)
+          }
+
+          // 一張卡一張券
+          let card = document.createElement('div')
+          card.className = "card col col-lg-auto"
+          card.style = "width: 100%; margin:8px;"
+
+          let cardBody = document.createElement('div')
+          cardBody.className = "card-body"
+          card.appendChild(cardBody)
+
+          let title = document.createElement('h3')
+          title.className = "card-title"
+          title.style = "font-weight: bold; color: red;"
+          title.innerHTML = item.name + " [" + item.code + "] <br/>" + item.week + "中籤"
+          cardBody.appendChild(title)
+
+          let cardText = document.createElement('h7')
+          cardText.appendChild(document.createTextNode("抽籤日期: " + item.date))
+          cardBody.appendChild(cardText)
+          grid.appendChild(card)
         });
 
       } else {
+        let span = document.createElement('h5')
         span.appendChild(document.createTextNode('都沒中'))
+        result.appendChild(span)
       }
       let hr = document.createElement('hr')
-      result.appendChild(span)
       result.appendChild(hr)
     })
   }
